@@ -103,7 +103,7 @@ namespace Idle_Game
 
                 AutoButton1.Visibility = Visibility.Collapsed;
 
-                autoClickTimer.Interval = TimeSpan.FromMilliseconds(67);
+                autoClickTimer.Interval = TimeSpan.FromMilliseconds(750);
 
                 autoClickTimer.Start(); 
             }
