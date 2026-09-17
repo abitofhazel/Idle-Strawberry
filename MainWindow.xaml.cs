@@ -6,7 +6,9 @@ namespace Idle_Game
     public sealed partial class MainWindow : Window
     {
         private DispatcherTimer gameTimer;
-        private DispatcherTimer autoClickTimer;
+        private DispatcherTimer autoClickTimer1;
+        private DispatcherTimer autoClickTimer2;
+        private DispatcherTimer autoClickTimer3;
 
         private int Strawberries = 0;
         private int produceAmount = 1;
@@ -20,9 +22,22 @@ namespace Idle_Game
             gameTimer.Tick += GameTimer_Tick;
             gameTimer.Start();
 
-            autoClickTimer = new DispatcherTimer();
-            autoClickTimer.Interval = TimeSpan.FromMilliseconds(1000);
-            autoClickTimer.Tick += AutoClickTimer_Tick;
+            autoClickTimer1 = new DispatcherTimer();
+            autoClickTimer1.Interval = TimeSpan.FromMilliseconds(1000);
+            autoClickTimer1.Tick += AutoClickTimer_Tick;
+
+            autoClickTimer2 = new DispatcherTimer();
+            autoClickTimer2.Interval = TimeSpan.FromMilliseconds(750);
+            autoClickTimer2.Tick += AutoClickTimer_Tick;
+
+            autoClickTimer3 = new DispatcherTimer();
+            autoClickTimer3.Interval = TimeSpan.FromMilliseconds(500);
+            autoClickTimer3.Tick += AutoClickTimer_Tick;
+        }
+
+        private void AutoClickerLog(object sender, object e)
+        {
+
         }
 
         private void GameTimer_Tick(object sender, object e)
@@ -89,9 +104,9 @@ namespace Idle_Game
 
                 AutoButton1.Visibility = Visibility.Collapsed;
 
-                autoClickTimer.Interval = TimeSpan.FromMilliseconds(1000);
+                autoClickTimer1.Start();
 
-                autoClickTimer.Start();
+                System.Diagnostics.Debug.WriteLine("AutoProducer Producing Every 1 Second.");
             }
         }
 
@@ -101,11 +116,25 @@ namespace Idle_Game
             {
                 Strawberries -= 1000;
 
-                AutoButton1.Visibility = Visibility.Collapsed;
+                AutoButton2.Visibility = Visibility.Collapsed;
 
-                autoClickTimer.Interval = TimeSpan.FromMilliseconds(750);
+                autoClickTimer2.Start();
 
-                autoClickTimer.Start(); 
+                System.Diagnostics.Debug.WriteLine("AutoProducer Producing Every 0,75 Second.");
+            }
+        }
+
+        private void Auto_Click3(object sender, object e)
+        {
+            if (Strawberries >= 10000)
+            {
+                Strawberries -= 10000;
+
+                AutoButton3.Visibility = Visibility.Collapsed;
+
+                autoClickTimer3.Start();
+
+                System.Diagnostics.Debug.WriteLine("AutoProducer Producing Every 0,50 Second.");
             }
         }
     }
