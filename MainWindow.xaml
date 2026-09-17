@@ -18,7 +18,7 @@
         <Button Content="Produce" Click="Produce_Click"/>
         <Button x:Name="UpgradeButton1" Content="Upgrade Growth Speed (100)" Click="Upgrade_Click1" Margin="0,100,0,0"/>
         <Button x:Name="UpgradeButton2" Content="Upgrade Watering System (1000)" Click="Upgrade_Click2" Margin="0,175,0,0"/>
-        <Button x:Name="UpgradeButton3" Content="Upgrade Placeholder (10000)" Click="Upgrade_Click3" Margin="0,250,0,0"/>
+        <Button x:Name="UpgradeButton3" Content="Upgrade Fertilizer (10000)" Click="Upgrade_Click3" Margin="0,250,0,0"/>
         <Button x:Name="AutoButton1" Content="Auto Harvest (100)" Click="Auto_Click1" Margin="0,400,0,0"/>
         <Button x:Name="AutoButton2" Content="Auto Harvest 2 (1000)" Click="Auto_Click2" Margin="0,475,0,0"/>
         <Button x:Name="AutoButton3" Content="Auto Harvest 3 (10000)" Click="Auto_Click3" Margin="0,550,0,0"/>
